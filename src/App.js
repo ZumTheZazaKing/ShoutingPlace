@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import { SignIn, auth } from './Auth';
 import { Home } from './Home';
+import { Dashboard } from './Dashboard';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      {user ? <Home/> : <SignIn/>}
+      {user ? <Dashboard/> : <SignIn/>}
     </div>
   );
 }
