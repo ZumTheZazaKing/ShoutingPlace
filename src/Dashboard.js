@@ -2,7 +2,7 @@ import { SignOut, auth } from "./Auth";
 import { EditProfile } from './EditProfile';
 
 import LinkIcon from '@material-ui/icons/Link';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import EmailIcon from '@material-ui/icons/Email';
 import EventIcon from '@material-ui/icons/Event';
 
 import { useState, useEffect, useRef } from 'react';
@@ -13,7 +13,7 @@ export function Dashboard(props){
     const [photoURL, setPhotoURL] = useState(auth.currentUser.photoURL);
     const [bio, setBio] = useState("This is where the bio is supposed to be but the the user is lazy...");
     const [website, setWebsite] = useState("Not set");
-    const [location, setLocation] = useState("Not set");
+    const [email, setEmail] = useState("Not set");
     const [joinDate, setJoinDate] = useState("Loading...");
 
     const editProfileRef = useRef();
@@ -29,7 +29,7 @@ export function Dashboard(props){
         setPhotoURL(data.photoURL);
         setBio(data.bio);
         setWebsite(data.website);
-        setLocation(data.location);
+        setEmail(data.email);
         setJoinDate(data.joinDate);
     }
 
@@ -45,7 +45,7 @@ export function Dashboard(props){
                     photoURL:auth.currentUser.photoURL,
                     bio:bio,
                     website:website,
-                    location:location,
+                    email:email,
                     joinDate:new Date().toLocaleDateString()
                 });
                 docRef.get().then(data => setValues(data.data()))
@@ -60,7 +60,7 @@ export function Dashboard(props){
             <h2>{username}</h2>
             <p id="bio">{bio}</p>
             <p><a id="link" href={website}><LinkIcon className="icon"/>{website}</a></p>
-            <p><LocationOnIcon className="icon"/>{location}</p>
+            <p><EmailIcon className="icon"/>{email}</p>
             <p><EventIcon className="icon"/>Joined {joinDate}</p>
             <br/>
             <SignOut/>
@@ -70,12 +70,12 @@ export function Dashboard(props){
         username={username}
         bio={bio}
         website={website}
-        location={location}
+        email={email}
         setPhotoURL={setPhotoURL}
         setUsername={setUsername}
         setBio={setBio}
         setWebsite={setWebsite}
-        setLocation={setLocation}
+        setEmail={setEmail}
         editProfileRef={editProfileRef}
         closeEditProfile={closeEditProfile}
         />
