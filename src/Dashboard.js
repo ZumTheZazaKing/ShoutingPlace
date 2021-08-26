@@ -16,15 +16,15 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 export function Dashboard(props){
 
     const shoutsRef = firestore.collection("shouts");
-    const query = shoutsRef.where("uid","==",auth.currentUser.uid).orderBy("createdAt");
+    const query = shoutsRef.where("uid","==",auth.currentUser.uid).orderBy("createdAt", "desc");
 
     const [userShouts] = useCollectionData(query, {idField:'id'});
 
     const [username, setUsername] = useState(auth.currentUser.displayName);
     const [photoURL, setPhotoURL] = useState(auth.currentUser.photoURL);
-    const [bio, setBio] = useState("This is where the bio is supposed to be but the the user is lazy...");
-    const [website, setWebsite] = useState("Not set");
-    const [email, setEmail] = useState("Not set");
+    const [bio, setBio] = useState("The user is lazy and didn't set a bio...");
+    const [website, setWebsite] = useState("");
+    const [email, setEmail] = useState("");
     const [joinDate, setJoinDate] = useState("Loading...");
 
     const editProfileRef = useRef();
@@ -70,8 +70,8 @@ export function Dashboard(props){
             <button id="editButton" onClick={() => openEditProfile()}>EDIT</button>
             <h2>{username}</h2>
             <p id="bio">{bio}</p>
-            <p><a id="link" href={website}><LinkIcon className="icon"/>{website}</a></p>
-            <p><EmailIcon className="icon"/>{email}</p>
+            {website ? <p><a id="link" href={website}><LinkIcon className="icon"/>{website}</a></p> : ""}
+            {email ? <p><EmailIcon className="icon"/>{email}</p> : ""}
             <p><EventIcon className="icon"/>Joined {joinDate}</p>
             <br/>
             <SignOut/>
@@ -84,7 +84,7 @@ export function Dashboard(props){
         <div id="userShouts">
             <h2>Your Shouts</h2>
             <hr/>
-            {userShouts && userShouts.reverse().map(shout => <Shout key={shout.id} shoutData={shout}/>)}
+            {userShouts && userShouts.map(shout => <Shout key={shout.id} shoutData={shout}/>)}
         </div>
         <EditProfile
         photoURL={photoURL}

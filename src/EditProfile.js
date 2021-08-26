@@ -3,21 +3,50 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { storage, auth, firestore } from './Auth';
+import { EditProfileAlert } from './EditProfileAlert';
 
 export function EditProfile(props){
 
     const [image, setImage] = useState('');
     const docRef = firestore.collection("users").doc(auth.currentUser.uid);
 
+    const [alertMsg, setAlertMsg] = useState("");
+
+    const editProfileAlertRef = useRef();
+    const openAlert = () => editProfileAlertRef.current.className = "";
+    const closeAlert = () => editProfileAlertRef.current.className = "hide";
+
     const update = () => {
+        if(!props.username){
+            setAlertMsg("Please fill in Username");
+            openAlert();
+            return;
+        }
+        if(!props.bio){
+            props.setBio("The user is lazy and didn't set a bio...")
+        }
+        if(!props.website){
+            props.setWebsite("");
+        }
+        if(!props.email){
+            props.setEmail("");
+        } else {
+            if(!props.email.includes("@")){
+                setAlertMsg("Emails must have '@'");
+                openAlert();
+                return;
+            }
+        }
+
+
         props.closeEditProfile();
 
         docRef.update({
             username:props.username,
-            bio:props.bio,
+            bio:props.bio || "The user is lazy and didn't set a bio...",
             website:props.website,
             email:props.email
         })
@@ -67,5 +96,10 @@ export function EditProfile(props){
             </div>  
             <Button type="submit" id="submit" color="primary" variant="contained" onClick={() => update()}>SUBMIT</Button>     
        </div>
+       <EditProfileAlert
+       editProfileAlertRef={editProfileAlertRef}
+       closeAlert={closeAlert}
+       alertMsg={alertMsg}
+       />
     </div>)
 }
