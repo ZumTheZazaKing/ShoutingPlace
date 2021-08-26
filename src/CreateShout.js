@@ -14,7 +14,6 @@ export function CreateShout(props){
         if(!shout)return;
 
         let currentDateTime = new Date().toLocaleString();
-        currentDateTime = currentDateTime.slice(0,currentDateTime.indexOf("G"));
 
         shoutsRef.add({
             uid:auth.currentUser.uid,

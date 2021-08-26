@@ -1,4 +1,4 @@
-import { SignOut, auth } from "./Auth";
+import { SignOut, auth, firestore } from "./Auth";
 import { EditProfile } from './EditProfile';
 import { CreateShout } from './CreateShout';
 
@@ -9,8 +9,16 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 
 import { useState, useEffect, useRef } from 'react';
+import { Shout } from './Shout';
+
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 export function Dashboard(props){
+
+    const shoutsRef = firestore.collection("shouts");
+    const query = shoutsRef.where("uid","==",auth.currentUser.uid).orderBy("createdAt");
+
+    const [userShouts] = useCollectionData(query, {idField:'id'});
 
     const [username, setUsername] = useState(auth.currentUser.displayName);
     const [photoURL, setPhotoURL] = useState(auth.currentUser.photoURL);
@@ -72,6 +80,12 @@ export function Dashboard(props){
         <Tooltip title="Create Shout">
             <Button id="addShout" variant="contained" color="primary" onClick={() => openCreateShout()}>+</Button>
         </Tooltip>
+        <br/><br/>
+        <div id="userShouts">
+            <h2>Your Shouts</h2>
+            <hr/>
+            {userShouts && userShouts.reverse().map(shout => <Shout key={shout.id} shoutData={shout}/>)}
+        </div>
         <EditProfile
         photoURL={photoURL}
         username={username}

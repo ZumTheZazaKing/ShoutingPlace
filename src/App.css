@@ -38,6 +38,7 @@ body #Navbar p {
   font-weight: 700;
   padding: 5px;
   margin: 0;
+  color: white;
 }
 body #dashboard {
   display: flex;
@@ -62,6 +63,8 @@ body #dashboard #dashboardContent {
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  text-align: center;
+  word-break: break-all;
   background: #d8d8d8;
 }
 body #dashboard #bio {
@@ -96,6 +99,65 @@ body #dashboard p {
 body #dashboard .icon {
   position: relative;
   top: 6px;
+}
+body #dashboard #userShouts {
+  width: 80%;
+  text-align: center;
+}
+body #dashboard #userShouts hr {
+  height: 5px;
+  border: none;
+  outline: none;
+  background-color: black;
+}
+body .shout {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+body .shout #shoutHeader {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+body .shout #shoutHeader img {
+  width: 50px;
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
+body .shout #shoutHeader p {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+body .shout #shoutHeader span {
+  color: grey;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+body .shout #shoutBody {
+  text-align: left;
+  padding: 10px;
+}
+body .shout #shoutBody p {
+  padding: 0;
+  margin: 0;
+}
+body .shout #shoutFooter p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .shout #shoutFooter #likes {
+  cursor: pointer;
 }
 body #editProfile {
   overflow: auto;
@@ -167,6 +229,18 @@ body .hide {
 @media only screen and (max-width: 400px) {
   #editForm, #createForm {
     width: 80% !important;
+  }
+
+  #dashboardContent {
+    width: 90% !important;
+  }
+
+  .shout {
+    width: 100% !important;
+  }
+
+  #userShouts {
+    width: 100% !important;
   }
 }
 
