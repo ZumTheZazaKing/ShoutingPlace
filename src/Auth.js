@@ -17,12 +17,13 @@ export function SignIn(){
         auth.signInWithPopup(provider);
     }
 
-    return (<div>
+    return (<div id="SignIn">
+        <h2>ShoutingPlace</h2>
+        <p>A place where people can shout out their thoughts without having to keep it in</p>
         <Button variant="contained" color="secondary" onClick={signInWithGoogle}>
             Sign in With Google
         </Button>
-        <br/>
-        <br/>
+        <br/><br/>
         <Button variant="contained" color="primary" onClick={signinWithFacebook}>
             Sign in With Facebook
         </Button>
