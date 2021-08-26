@@ -155,6 +155,7 @@ body .shout #shoutFooter p {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: grey;
 }
 body .shout #shoutFooter #likes {
   cursor: pointer;
