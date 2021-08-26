@@ -1,9 +1,12 @@
 import { SignOut, auth } from "./Auth";
 import { EditProfile } from './EditProfile';
+import { CreateShout } from './CreateShout';
 
 import LinkIcon from '@material-ui/icons/Link';
 import EmailIcon from '@material-ui/icons/Email';
 import EventIcon from '@material-ui/icons/Event';
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -17,12 +20,12 @@ export function Dashboard(props){
     const [joinDate, setJoinDate] = useState("Loading...");
 
     const editProfileRef = useRef();
-    const closeEditProfile = () => {
-        editProfileRef.current.className = "hide";
-    }
-    const openEditProfile = () => {
-        editProfileRef.current.className = "";
-    }
+    const closeEditProfile = () => {editProfileRef.current.className = "hide";}
+    const openEditProfile = () => {editProfileRef.current.className = "";}
+
+    const createShoutRef = useRef();
+    const openCreateShout = () => {createShoutRef.current.className = ""}
+    const closeCreateShout = () => {createShoutRef.current.className = "hide"}
 
     function setValues(data){
         setUsername(data.username);
@@ -65,6 +68,10 @@ export function Dashboard(props){
             <br/>
             <SignOut/>
         </div>
+        <br/>
+        <Tooltip title="Create Shout">
+            <Button id="addShout" variant="contained" color="primary" onClick={() => openCreateShout()}>+</Button>
+        </Tooltip>
         <EditProfile
         photoURL={photoURL}
         username={username}
@@ -78,6 +85,12 @@ export function Dashboard(props){
         setEmail={setEmail}
         editProfileRef={editProfileRef}
         closeEditProfile={closeEditProfile}
+        />
+        <CreateShout
+        createShoutRef={createShoutRef}
+        closeCreateShout={closeCreateShout}
+        username={username}
+        photoURL={photoURL}
         />
     </div>)
 }

@@ -13,7 +13,7 @@ export function Navbar(){
                     <Tooltip title="Home">
                         <Home className="btn"/>
                     </Tooltip>
-                    <Tooltip title="Dashboard">
+                    <Tooltip title="Profile">
                         <AccountCircleIcon className="btn"/>
                     </Tooltip>
                 </div> 
