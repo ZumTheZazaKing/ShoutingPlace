@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 
 import { useState } from 'react';
 import { auth, firestore } from './Auth';
+import firebase from './firebase';
 
 export function CreateShout(props){
 
@@ -10,10 +11,10 @@ export function CreateShout(props){
 
     const [shout, setShout] = useState("");
 
-    function createShout(){
+    const createShout = () => {
         if(!shout)return;
 
-        let currentDateTime = new Date().toLocaleString();
+        let createTimestamp = new Date().toLocaleString();
 
         shoutsRef.add({
             uid:auth.currentUser.uid,
@@ -21,9 +22,11 @@ export function CreateShout(props){
             likeCount:0,
             userImage:props.photoURL,
             body:shout,
-            createdAt: currentDateTime
+            createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+            createTimestamp: createTimestamp
         })
 
+        setShout("");
         props.closeCreateShout();
     }
 

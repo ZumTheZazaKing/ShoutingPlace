@@ -2,7 +2,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 export function Shout(props){
 
-    const { uid, userHandle, userImage, likeCount, createdAt, body } = props.shoutData;
+    const { uid, userHandle, userImage, likeCount, createTimestamp, body } = props.shoutData;
 
     return (<div className="shout">
         <div id="shoutHeader">
@@ -10,7 +10,7 @@ export function Shout(props){
             <div id="shoutInfo">
                 <p>
                     {userHandle}<br/>
-                    <span>{createdAt}</span>
+                    <span>{createTimestamp}</span>
                 </p>
             </div>
         </div>
