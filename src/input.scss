@@ -120,10 +120,42 @@ body{
         margin-bottom: 20px;
         padding: 10px;
         border-radius: 5px;
+        #shoutAlert{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba($color: #000000, $alpha: 0.4);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            #shoutAlertContent{
+                background: white;
+                padding: 10px;
+                width: 30%;
+                p{
+                    font-family: $importantFont;
+                    font-weight: 600;
+                    margin: 10px;
+                }
+            }
+        }
         #shoutHeader{
             display: flex;
             text-align: left;
             align-items: center;
+            justify-content: space-between;
+            #shoutHeaderMain{
+                display: flex;
+                text-align: left;
+                align-items: center;
+            }
+            .deleteShout{
+                color: crimson;
+                cursor: pointer;
+            }
             img{
                 width: 50px ;
                 height: 50px;
@@ -276,5 +308,8 @@ body{
     }
     #userShouts{
         width: 100% !important;
+    }
+    #shoutAlertContent{
+        width: 80% !important;
     }
 }

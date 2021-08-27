@@ -23,7 +23,9 @@ export function CreateShout(props){
             userImage:props.photoURL,
             body:shout,
             createdAt:firebase.firestore.FieldValue.serverTimestamp(),
-            createTimestamp: createTimestamp
+            createTimestamp: createTimestamp,
+            likeList:[],
+            commentList:[]
         })
 
         setShout("");

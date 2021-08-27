@@ -94,7 +94,7 @@ export function EditProfile(props){
                 <Input type="email" fullWidth={true} color="primary" value={props.email} onChange={e => props.setEmail(e.target.value)} required/>
                 <br/><br/>
             </div>  
-            <Button type="submit" id="submit" color="primary" variant="contained" onClick={() => update()}>SUBMIT</Button>     
+            <Button type="submit" id="submit" color="primary" variant="contained" onClick={() => update()}>EDIT</Button>     
        </div>
        <EditProfileAlert
        editProfileAlertRef={editProfileAlertRef}
