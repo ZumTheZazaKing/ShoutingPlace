@@ -9,8 +9,6 @@ import { Comments } from './Comments';
 
 import { useRef } from 'react'; 
 
-import { useAuthState } from 'react-firebase-hooks/auth';
-
 export function Shout(props){
 
     const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount } = props.shoutData;
@@ -41,8 +39,6 @@ export function Shout(props){
             }
         })
     }
-
-    const [user] = useAuthState(auth);
 
     return (<div className="shout" id={id} name={uid}>
         <div id="shoutHeader">
