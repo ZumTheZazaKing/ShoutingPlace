@@ -27,7 +27,10 @@ export function Shout(props){
     function ToggleLike(){
         shoutsRef.doc(id).get().then(doc => {
             if(doc.data().likeList.includes(auth.currentUser.uid)){
-                return;
+                shoutsRef.doc(id).update({
+                    likeCount: likeCount - 1,
+                    likeList: likeList.slice(0, likeList.length - 1)
+                })
             } else {
                 shoutsRef.doc(id).update({
                     likeList:[...likeList, auth.currentUser.uid],
