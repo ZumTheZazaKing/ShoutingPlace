@@ -25,7 +25,6 @@ export function CreateShout(props){
             createdAt:firebase.firestore.FieldValue.serverTimestamp(),
             createTimestamp: createTimestamp,
             likeList:[],
-            commentList:[]
         })
 
         setShout("");
