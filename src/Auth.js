@@ -32,7 +32,7 @@ export function SignIn(){
 
 export function SignOut(){
     return auth.currentUser && (
-        <Button variant="contained" size="small" onClick={e => auth.signOut()}>
+        <Button variant="contained" size="small" onClick={() => auth.signOut()}>
             Sign Out
         </Button>
     )

@@ -4,17 +4,27 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { auth } from './Auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-export function Navbar(){
+export function Navbar(props){
     const [user] = useAuthState(auth);
+
+    function goToHome(){
+        props.closeProfile();
+        props.openHomePage();
+    }
+
+    function goToProfile(){
+        props.openProfile();
+        props.closeHomePage();
+    }
 
     return (<div id="Navbar">
         <p>ShoutingPlace</p>
         {user ? <div id="navButtons">
                     <Tooltip title="Home">
-                        <Home className="btn"/>
+                        <Home onClick={() => goToHome()} className="btn"/>
                     </Tooltip>
                     <Tooltip title="Profile">
-                        <AccountCircleIcon className="btn"/>
+                        <AccountCircleIcon onClick={() => goToProfile()} className="btn"/>
                     </Tooltip>
                 </div> 
                 : ""}

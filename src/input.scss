@@ -25,7 +25,9 @@ body{
         padding: 10px;
         background: darkcyan;
         justify-content: space-between;
+        position: sticky;
         top: 0;
+        z-index: 1;
         #navButtons{
             color: white;
             .btn{
@@ -40,6 +42,17 @@ body{
             padding: 5px;
             margin: 0;
             color: white;
+        }
+    }
+    #homepage{
+        h2{
+            font-family: $importantFont;
+            margin: 20px;
+        }
+        #shouts{
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 
@@ -130,6 +143,7 @@ body{
                 font-size: 12px;
                 color: grey;
                 margin-left: 10px;
+                font-family: Arial, Helvetica, sans-serif;
             }
             span{
                 font-family: $importantFont;
@@ -142,6 +156,7 @@ body{
                 height: 40px;
                 margin-top: auto;
                 margin-bottom: auto;
+                border-radius: 50px;
             }
         }
         #commentBody{
@@ -176,6 +191,7 @@ body{
                 background: white;
                 padding: 10px;
                 width: 30%;
+                text-align: center;
                 p{
                     font-family: $importantFont;
                     font-weight: 600;
@@ -203,6 +219,7 @@ body{
                 margin-top: auto;
                 margin-bottom: auto;
                 cursor: pointer;
+                border-radius: 50px;
             }
             p{
                 margin: 0;
@@ -224,12 +241,14 @@ body{
             p{
                 padding: 0;
                 margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
             }
         }
         #shoutFooter{
             display: flex;
             justify-content: center;
             align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
             p{
                 margin: 0;
                 padding: 0;
@@ -250,15 +269,23 @@ body{
             background-color: rgba($color: #000000, $alpha: 0.4);
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            z-index: 2;
+            hr{
+                height: 5px;
+                border: none;
+                outline: none;
+                background-color: black;
+            }
             #commentsContent{
                 background-color: white;
                 padding: 10px;
                 width: 50%;
                 text-align: right;
-                max-height:90%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 50px;
+                max-height: 85%;
+                overflow-y: auto;
                 #commentInput{
                     text-align: left;
                 }
@@ -285,6 +312,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 2;
         #editForm{
             background: white;
             width: 50%;
@@ -388,5 +416,10 @@ body{
     }
     #commentsContent{
         width: 90% !important;
+    }
+    #homepage{
+        #shouts{
+            width: 95% !important;
+        }
     }
 }

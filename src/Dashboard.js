@@ -64,7 +64,7 @@ export function Dashboard(props){
         })
     },[])
 
-    return (<div id="dashboard">
+    return (<div id="dashboard" ref={props.profileRef}>
         <div id="dashboardContent">
             <img id="profilePicture" src={photoURL} alt="profile phot should be here"/>
             <button id="editButton" onClick={() => openEditProfile()}>EDIT</button>
