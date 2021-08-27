@@ -1,26 +1,27 @@
 import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
+import ChatIcon from '@material-ui/icons/Chat';
 
 import { auth, firestore } from './Auth';
 import { ShoutAlert } from './ShoutAlert';
+import { Comments } from './Comments';
+
 import { useRef } from 'react'; 
 
 export function Shout(props){
 
-    const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList } = props.shoutData;
+    const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount } = props.shoutData;
     const shoutsRef = firestore.collection("shouts");
 
+    const commentsRef = useRef();
+    const openComments = () => commentsRef.current.className = "";
+    const closeComments = () => commentsRef.current.className = "hide";
+
     const shoutAlertRef = useRef();
-    const openShoutAlertRef = () => {
-        shoutAlertRef.current.className = "";
-    }
-    const closeShoutAlertRef = () => {
-        shoutAlertRef.current.className = "hide";
-    }
-    function deleteShout(){
-        shoutsRef.doc(id).delete();
-    }
+    const openShoutAlertRef = () => {shoutAlertRef.current.className = "";}
+    const closeShoutAlertRef = () => {shoutAlertRef.current.className = "hide";}
+    function deleteShout(){shoutsRef.doc(id).delete();}
 
 
     function ToggleLike(){
@@ -61,11 +62,22 @@ export function Shout(props){
                     {likeCount}
                 </p>
             </Tooltip>
+            <Tooltip title="Comments">
+                <p id="comments" onClick={() => openComments()}>
+                    <ChatIcon/>
+                    {commentCount}
+                </p>
+            </Tooltip>
         </div>
         <ShoutAlert
         closeShoutAlertRef={closeShoutAlertRef}
         deleteShout={deleteShout}
         shoutAlertRef={shoutAlertRef}
+        />
+        <Comments
+        commentsRef={commentsRef}
+        closeComments={closeComments}
+        id={id}
         />
     </div>)
 }

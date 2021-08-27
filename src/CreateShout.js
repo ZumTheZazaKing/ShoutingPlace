@@ -20,6 +20,7 @@ export function CreateShout(props){
             uid:auth.currentUser.uid,
             userHandle:props.username,
             likeCount:0,
+            commentCount:0,
             userImage:props.photoURL,
             body:shout,
             createdAt:firebase.firestore.FieldValue.serverTimestamp(),
