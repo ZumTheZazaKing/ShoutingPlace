@@ -13,6 +13,7 @@ export function Shout(props){
 
     const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount } = props.shoutData;
     const shoutsRef = firestore.collection("shouts");
+    const commentsReference = firestore.collection("comments"); 
 
     const commentsRef = useRef();
     const openComments = () => commentsRef.current.className = "";
@@ -21,7 +22,16 @@ export function Shout(props){
     const shoutAlertRef = useRef();
     const openShoutAlertRef = () => {shoutAlertRef.current.className = "";}
     const closeShoutAlertRef = () => {shoutAlertRef.current.className = "hide";}
-    function deleteShout(){shoutsRef.doc(id).delete();}
+    function deleteShout(){
+        shoutsRef.doc(id).delete();
+        commentsReference.get().then(docs => {
+            docs.forEach(doc => {
+                if(doc.data().commentFor === id){
+                    doc.ref.delete();
+                }
+            })
+        })
+    }
 
 
     function ToggleLike(){
