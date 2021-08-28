@@ -30,6 +30,8 @@ body{
         z-index: 1;
         #navButtons{
             color: white;
+            display: flex;
+            align-items: center;
             .btn{
                 margin-left: 5px;
                 margin-right: 5px;
@@ -42,6 +44,35 @@ body{
             padding: 5px;
             margin: 0;
             color: white;
+        }
+    }
+    #Notifications{
+        h2{
+            font-family: $importantFont;
+            margin: 20px;
+        }
+        .notification{
+            display: flex;
+            align-items: center;
+            width: 80%;
+            background-color: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            border-radius: 10px;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+            p{
+                margin-left: 10px;
+                font-family: $importantFont;
+                font-weight: 600;
+                font-size: 14px;
+            }
         }
     }
     #homepage{
@@ -427,5 +458,8 @@ body{
         #shouts{
             width: 95% !important;
         }
+    }
+    .notification{
+        width: 95% !important;
     }
 }

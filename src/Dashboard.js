@@ -63,7 +63,8 @@ export function Dashboard(props){
                     bio:bio,
                     website:website,
                     email:email,
-                    joinDate:new Date().toLocaleDateString()
+                    joinDate:new Date().toLocaleDateString(),
+                    notiCount:0
                 });
                 docRef.get().then(data => setValues(data.data()))
             }

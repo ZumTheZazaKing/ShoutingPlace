@@ -7,6 +7,7 @@ import { Home } from './Home';
 import { Dashboard } from './Dashboard';
 import { Navbar } from './Navbar';
 import { ViewProfile } from './ViewProfile';
+import { Notifications } from './Notifications';
 
 import { useRef, useState } from 'react';
 
@@ -27,6 +28,11 @@ function App() {
   const viewProfileRef = useRef();
   const closeViewProfile = () => viewProfileRef.current.className = "hide";
   const openViewProfile = () => viewProfileRef.current.className = "";
+
+  const notiRef = useRef();
+  const closeNoti = () => notiRef.current.className = "hide";
+  const openNoti = () => notiRef.current.className = "";
+
 
   let [viewUsername, setViewUsername] = useState("Loading...");
   let [viewImage, setViewImage] = useState("");
@@ -53,6 +59,8 @@ function App() {
       closeProfile={closeProfile} 
       openProfile={openProfile}
       closeViewProfile={closeViewProfile}
+      openNoti={openNoti}
+      closeNoti={closeNoti}
       />
 
       {user ? <Dashboard 
@@ -89,6 +97,8 @@ function App() {
       setViewUid={setViewUid}
       setViewVariables={setViewVariables}
       />
+
+      <Notifications notiRef={notiRef}/>
     </div>
   );
 }

@@ -29,6 +29,8 @@ body #Navbar {
 }
 body #Navbar #navButtons {
   color: white;
+  display: flex;
+  align-items: center;
 }
 body #Navbar #navButtons .btn {
   margin-left: 5px;
@@ -41,6 +43,33 @@ body #Navbar p {
   padding: 5px;
   margin: 0;
   color: white;
+}
+body #Notifications h2 {
+  font-family: "Quicksand", sans-serif;
+  margin: 20px;
+}
+body #Notifications .notification {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+body #Notifications .notification img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+body #Notifications .notification p {
+  margin-left: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
 }
 body #homepage h2 {
   font-family: "Quicksand", sans-serif;
@@ -410,6 +439,10 @@ body .hide {
   }
 
   #homepage #shouts {
+    width: 95% !important;
+  }
+
+  .notification {
     width: 95% !important;
   }
 }

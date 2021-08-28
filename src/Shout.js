@@ -99,6 +99,7 @@ export function Shout(props){
         commentsRef={commentsRef}
         closeComments={closeComments}
         id={id}
+        uid={uid}
         imageClick={props.imageClick}
         setViews={props.setViews}
         setViewUid={props.setViewUid}

@@ -18,6 +18,7 @@ export function Comments(props){
     const commentsRef = firestore.collection("comments");
     const usersRef = firestore.collection("users");
     const shoutsRef = firestore.collection("shouts");
+    const notiRef = firestore.collection("notifications");
 
     const query = commentsRef.where("commentFor","==",props.id).orderBy("createdAt");
 
@@ -46,6 +47,26 @@ export function Comments(props){
         })
 
         setCommentBody("");
+
+        if(auth.currentUser.uid === props.uid)return;
+
+        usersRef.doc(auth.currentUser.uid).get().then(doc => {
+            notiRef.add({
+                notiUid:auth.currentUser.uid,
+                notiHandle:doc.data().username,
+                notiImage:doc.data().photoURL,
+                notiPost:props.id,
+                notiFor:props.uid,
+                createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+                notiMessage:"commented on your shout",
+                notiTimestamp:commentTimestamp
+            })
+            usersRef.doc(props.uid).update({
+                notiCount:doc.data().notiCount + 1
+            })
+        })
+
+
     }
 
     return (<div id="Comments" ref={props.commentsRef} className="hide">
