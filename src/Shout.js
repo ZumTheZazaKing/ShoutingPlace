@@ -13,7 +13,8 @@ export function Shout(props){
 
     const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount } = props.shoutData;
     const shoutsRef = firestore.collection("shouts");
-    const commentsReference = firestore.collection("comments"); 
+    const commentsReference = firestore.collection("comments");
+    const usersRef = firestore.collection("users");
 
     const commentsRef = useRef();
     const openComments = () => commentsRef.current.className = "";
@@ -50,10 +51,18 @@ export function Shout(props){
         })
     }
 
+    function viewProfile(){
+        props.imageClick();
+        usersRef.doc(uid).get().then(doc => {
+            props.setViews(doc.data())
+        })
+        props.setViewUid(uid);
+    }
+
     return (<div className="shout" id={id} name={uid}>
         <div id="shoutHeader">
             <div id="shoutHeaderMain">
-                <img src={userImage} alt="PP here"/>
+                <img src={userImage} alt="PP here" onClick={auth.currentUser === null ? () => {return} : (auth.currentUser.uid !== uid ? () => viewProfile() : () => {return})}/>
                 <div id="shoutInfo">
                     <p>
                         {userHandle}<br/>

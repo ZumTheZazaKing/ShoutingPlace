@@ -35,6 +35,12 @@ export function Dashboard(props){
     const openCreateShout = () => {createShoutRef.current.className = ""}
     const closeCreateShout = () => {createShoutRef.current.className = "hide"}
 
+    function openViewProfile(){
+        props.openViewProfile();
+        props.closeProfile();
+        props.closeHomePage();
+    }
+
     function setValues(data){
         setUsername(data.username);
         setPhotoURL(data.photoURL);
@@ -84,7 +90,7 @@ export function Dashboard(props){
         <div id="userShouts">
             <h2>Your Shouts</h2>
             <hr/>
-            {userShouts && userShouts.map(shout => <Shout key={shout.id} shoutData={shout}/>)}
+            {userShouts && userShouts.map(shout => <Shout imageClick={openViewProfile} setViewUid={props.setViewUid} setViews={props.setViewVariables} key={shout.id} shoutData={shout}/>)}
         </div>
         <EditProfile
         photoURL={photoURL}

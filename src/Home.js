@@ -10,10 +10,16 @@ export function Home(props){
 
     const [shouts] = useCollectionData(query, {idField:'id'});
 
+    function openViewProfile(){
+        props.openViewProfile();
+        props.closeProfile();
+        props.closeHomePage();
+    }
+
     return (<div id="homepage" className="hide" ref={props.homePageRef}>
         <h2>Latest Shouts</h2>
         <div id="shouts">
-            {shouts && shouts.map(shout => <Shout key={shout.id} shoutData={shout}/>)}
+            {shouts && shouts.map(shout => <Shout imageClick={openViewProfile} setViewUid={props.setViewUid} setViews={props.setViewVariables} key={shout.id} shoutData={shout}/>)}
         </div>
     </div>)
 }

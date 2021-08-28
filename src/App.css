@@ -51,20 +51,20 @@ body #homepage #shouts {
   margin-left: auto;
   margin-right: auto;
 }
-body #dashboard {
+body #dashboard, body #ViewProfile {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
 }
-body #dashboard #addShout {
+body #dashboard #addShout, body #ViewProfile #addShout {
   border-radius: 50px;
   padding: 10px;
   font-size: 24px;
   cursor: pointer;
 }
-body #dashboard #dashboardContent {
+body #dashboard #dashboardContent, body #ViewProfile #dashboardContent {
   border-radius: 10px;
   padding: 20px;
   width: 80%;
@@ -78,16 +78,16 @@ body #dashboard #dashboardContent {
   word-break: break-all;
   background: #d8d8d8;
 }
-body #dashboard #bio {
+body #dashboard #bio, body #ViewProfile #bio {
   text-align: center;
 }
-body #dashboard img {
+body #dashboard img, body #ViewProfile img {
   width: 100px;
   height: 100px;
   border-radius: 50px;
   margin-bottom: 30px;
 }
-body #dashboard #editButton {
+body #dashboard #editButton, body #ViewProfile #editButton {
   text-align: right;
   font-weight: 600;
   font-size: 12px;
@@ -99,23 +99,23 @@ body #dashboard #editButton {
   margin: 0;
   padding: 0;
 }
-body #dashboard h2 {
+body #dashboard h2, body #ViewProfile h2 {
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
 }
-body #dashboard p {
+body #dashboard p, body #ViewProfile p {
   font-family: Arial, Helvetica, sans-serif;
 }
-body #dashboard .icon {
+body #dashboard .icon, body #ViewProfile .icon {
   position: relative;
   top: 6px;
 }
-body #dashboard #userShouts {
+body #dashboard #userShouts, body #ViewProfile #userShouts {
   width: 80%;
   text-align: center;
 }
-body #dashboard #userShouts hr {
+body #dashboard #userShouts hr, body #ViewProfile #userShouts hr {
   height: 5px;
   border: none;
   outline: none;

@@ -10,11 +10,13 @@ export function Navbar(props){
     function goToHome(){
         props.closeProfile();
         props.openHomePage();
+        props.closeViewProfile();
     }
 
     function goToProfile(){
         props.openProfile();
         props.closeHomePage();
+        props.closeViewProfile();
     }
 
     return (<div id="Navbar">

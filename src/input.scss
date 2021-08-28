@@ -128,6 +128,11 @@ body{
         }
     }
 
+    #ViewProfile{
+        @extend #dashboard;
+
+    }
+
     .comment{
         text-align: left;
         border-top: 1px solid grey;
