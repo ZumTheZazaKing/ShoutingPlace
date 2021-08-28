@@ -72,7 +72,7 @@ export function Comments(props){
             <br/><br/>
             <hr/>
             <div id="commentsSection">
-                {shoutComments && shoutComments.map(comment => <Comment key={comment.id} commentData={comment}/>)}
+                {shoutComments && shoutComments.map(comment => <Comment imageClick={props.imageClick} setViews={props.setViews} setViewUid={props.setViewUid} key={comment.id} commentData={comment}/>)}
             </div>
         </div>
     </div>)

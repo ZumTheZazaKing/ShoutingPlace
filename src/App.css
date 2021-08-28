@@ -152,6 +152,7 @@ body .comment #commentHeader img {
   margin-top: auto;
   margin-bottom: auto;
   border-radius: 50px;
+  cursor: pointer;
 }
 body .comment #commentBody {
   padding: 10px;
