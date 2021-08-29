@@ -3,6 +3,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import ChatIcon from '@material-ui/icons/Chat';
 
+import firebase from './firebase';
 import { auth, firestore } from './Auth';
 import { ShoutAlert } from './ShoutAlert';
 import { Comments } from './Comments';
@@ -15,6 +16,7 @@ export function Shout(props){
     const shoutsRef = firestore.collection("shouts");
     const commentsReference = firestore.collection("comments");
     const usersRef = firestore.collection("users");
+    const notiRef = firestore.collection("notifications");
 
     const commentsRef = useRef();
     const openComments = () => commentsRef.current.className = "";
@@ -42,10 +44,41 @@ export function Shout(props){
                     likeCount: likeCount - 1,
                     likeList: likeList.slice(0, likeList.length - 1)
                 })
+
+                if(auth.currentUser.uid === uid)return;
+                notiRef.get().then(docs => {
+                    docs.forEach(data => {
+                        if(data.data().notiUid === auth.currentUser.uid){
+                            if(data.data().notiPost === id){
+                                data.ref.delete();
+                            }
+                        }
+                    })
+                })
+
             } else {
                 shoutsRef.doc(id).update({
                     likeList:[...likeList, auth.currentUser.uid],
                     likeCount:likeCount+1,
+                })
+
+                if(auth.currentUser.uid === uid)return;
+                const shoutTimestamp = new Date().toLocaleString();
+
+                usersRef.doc(auth.currentUser.uid).get().then(data => {
+                    notiRef.add({
+                        notiUid:auth.currentUser.uid,
+                        notiHandle:data.data().username,
+                        notiImage:data.data().photoURL,
+                        notiPost:id,
+                        notiFor:uid,
+                        createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+                        notiMessage:"liked your shout",
+                        notiTimestamp:shoutTimestamp
+                    })
+                    usersRef.doc(uid).update({
+                        notiCount:doc.data().notiCount + 1
+                    })
                 })
             }
         })

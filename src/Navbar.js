@@ -15,7 +15,7 @@ export function Navbar(props){
 
     const [notiCount, setNotiCount] = useState(0);
 
-    useEffect(() => {
+    setInterval(() => {
         if(auth.currentUser === null){
             return;
         } else {
@@ -23,7 +23,7 @@ export function Navbar(props){
                 setNotiCount(doc.data().notiCount);
             })
         }
-    })
+    },1000)
 
     function goToHome(){
         props.closeProfile();
