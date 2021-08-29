@@ -129,9 +129,7 @@ body #Notifications #notificationPost {
   background-color: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: auto;
 }
 body #Notifications #notificationPost #notiPostContent {
   background: white;
@@ -139,8 +137,9 @@ body #Notifications #notificationPost #notiPostContent {
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
-  max-height: 85%;
   border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 body #Notifications #notificationPost #notiPostContent #close {
   float: right;
@@ -172,6 +171,10 @@ body #Notifications #notificationPost #notiPostContent #notiPostHeader span {
 body #Notifications #notificationPost #notiPostContent #notiPostBody {
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
+}
+body #Notifications #notificationPost #notiPostContent #notiPostBody img {
+  width: 100%;
+  cursor: pointer;
 }
 body #Notifications #notificationPost #notiPostContent #notiPostFooter {
   display: flex;

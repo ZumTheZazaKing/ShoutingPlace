@@ -59,7 +59,8 @@ export function Comments(props){
                 notiFor:props.uid,
                 createdAt:firebase.firestore.FieldValue.serverTimestamp(),
                 notiMessage:"commented on your shout",
-                notiTimestamp:commentTimestamp
+                notiTimestamp:commentTimestamp,
+                notiPostImage:props.bodyImage
             })
             usersRef.doc(props.uid).get().then(uidDoc => {
                 usersRef.doc(props.uid).update({

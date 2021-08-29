@@ -15,6 +15,7 @@ export function Notification(props){
             props.setNotiPostImage(doc.data().userImage);
             props.setNotiPostTime(doc.data().createTimestamp);
             props.setNotiPostBody(doc.data().body);
+            props.setNotiPostBodyImage(doc.data().bodyImage)
 
             props.setNotiPostHandle(notiHandle);
             props.setNotiMessage(notiMessage);

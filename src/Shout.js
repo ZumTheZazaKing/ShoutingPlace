@@ -82,7 +82,8 @@ export function Shout(props){
                         notiFor:uid,
                         createdAt:firebase.firestore.FieldValue.serverTimestamp(),
                         notiMessage:"liked your shout",
-                        notiTimestamp:shoutTimestamp
+                        notiTimestamp:shoutTimestamp,
+                        notiPostImage:bodyImage
                     })
                     usersRef.doc(uid).get().then(uidDoc => {
                         usersRef.doc(uid).update({
@@ -152,6 +153,7 @@ export function Shout(props){
         imageClick={props.imageClick}
         setViews={props.setViews}
         setViewUid={props.setViewUid}
+        bodyImage={bodyImage}
         />
     </div>)
 }

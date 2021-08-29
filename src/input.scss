@@ -137,17 +137,16 @@ body{
             background-color: rgba($color: #000000, $alpha: 0.4);
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: auto;
             #notiPostContent{
                 background: white;
                 width: 50%;
                 margin-left: auto;
                 margin-right: auto;
                 padding: 10px;
-                max-height: 85%;
                 border-radius: 10px;
+                margin-top: 50px;
+                margin-bottom: 50px;
                 #close{
                     float: right;
                     font-size: 24px;
@@ -161,6 +160,7 @@ body{
                         border-radius: 50%;
                         width: 50px;
                         height: 50px;
+                        
                     }
                     p{
                         margin-left: 10px;
@@ -178,6 +178,10 @@ body{
                 #notiPostBody{
                     padding: 10px;
                     font-family: Arial, Helvetica, sans-serif;
+                    img{
+                        width: 100%;
+                        cursor: pointer;
+                    }
                 }
                 #notiPostFooter{
                     display: flex;
@@ -186,6 +190,7 @@ body{
                         width: 30px;
                         height: 30px;
                         border-radius: 50%;
+                       
                     }
                     p{
                         margin-left: 10px;

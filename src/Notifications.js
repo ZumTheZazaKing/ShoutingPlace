@@ -17,6 +17,7 @@ export function Notifications(props){
     const [notiPostImage, setNotiPostImage] = useState("");
     const [notiPostTime, setNotiPostTime] = useState("");
     const [notiPostBody, setNotiPostBody] = useState("");
+    const [notiPostBodyImage, setNotiPostBodyImage] = useState("");
 
     const [notiPostHandle, setNotiPostHandle] = useState("");
     const [notiPostMessage, setNotiMessage] = useState("");
@@ -39,6 +40,7 @@ export function Notifications(props){
             setNotiPostHandle={setNotiPostHandle}
             setNotiMessage={setNotiMessage}
             setNotiPostHandleImage={setNotiPostHandleImage}
+            setNotiPostBodyImage={setNotiPostBodyImage}
             key={notification.id} 
             notiData={notification}/>)}
         </div>
@@ -53,6 +55,7 @@ export function Notifications(props){
         notiPostHandle={notiPostHandle}
         notiPostMessage={notiPostMessage}
         notiPostHandleImage={notiPostHandleImage}
+        notiPostBodyImage={notiPostBodyImage}
         />
     </div>
 }
