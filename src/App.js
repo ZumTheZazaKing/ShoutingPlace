@@ -114,6 +114,10 @@ function App() {
       setViewVariables={setViewVariables}
       setViewUid={setViewUid}
       />
+
+      <div id="footer">
+        <p>ZUMTHEZAZAKING &copy;2021</p>
+      </div>
     </div>
   );
 }

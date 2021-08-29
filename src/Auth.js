@@ -19,7 +19,10 @@ export function SignIn(){
 
     return (<div id="SignIn">
         <h2>ShoutingPlace</h2>
-        <p>A place where people can shout out their thoughts without having to keep it in</p>
+        <p>A place where people can shout out their thoughts without having to keep it in
+            <br/><br/>
+            (Once you sign in through one of the options, the other option will be unavailable <b>permanently</b>)
+        </p>
         <Button variant="contained" color="secondary" onClick={signInWithGoogle}>
             Sign in With Google
         </Button>
