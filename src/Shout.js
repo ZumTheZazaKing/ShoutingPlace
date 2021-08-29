@@ -12,7 +12,7 @@ import { useRef } from 'react';
 
 export function Shout(props){
 
-    const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount } = props.shoutData;
+    const { uid, userHandle, userImage, likeCount, createTimestamp, body, id, likeList, commentCount, bodyImage } = props.shoutData;
     const shoutsRef = firestore.collection("shouts");
     const commentsReference = firestore.collection("comments");
     const usersRef = firestore.collection("users");
@@ -115,6 +115,7 @@ export function Shout(props){
         <br/>
         <div id="shoutBody">
             <p>{body}</p>
+            {bodyImage ? <img src={bodyImage} alt="Post img here"/> : ""}
         </div>
         <div id="shoutFooter">
             <Tooltip title="Likes">

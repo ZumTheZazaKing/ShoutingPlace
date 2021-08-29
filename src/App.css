@@ -428,6 +428,10 @@ body .shout #shoutBody p {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+body .shout #shoutBody img {
+  width: 100px;
+  height: 100px;
+}
 body .shout #shoutFooter {
   display: flex;
   justify-content: center;
