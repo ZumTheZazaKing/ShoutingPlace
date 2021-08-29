@@ -8,6 +8,7 @@ import { Dashboard } from './Dashboard';
 import { Navbar } from './Navbar';
 import { ViewProfile } from './ViewProfile';
 import { Notifications } from './Notifications';
+import { SearchPage } from './SearchPage';
 
 import { useRef, useState } from 'react';
 
@@ -32,6 +33,10 @@ function App() {
   const notiRef = useRef();
   const closeNoti = () => notiRef.current.className = "hide";
   const openNoti = () => notiRef.current.className = "";
+
+  const searchRef = useRef();
+  const closeSearch = () => searchRef.current.className = "hide";
+  const openSearch = () => searchRef.current.className = "";
 
 
   let [viewUsername, setViewUsername] = useState("Loading...");
@@ -61,6 +66,8 @@ function App() {
       closeViewProfile={closeViewProfile}
       openNoti={openNoti}
       closeNoti={closeNoti}
+      openSearch={openSearch}
+      closeSearch={closeSearch}
       />
 
       {user ? <Dashboard 
@@ -99,6 +106,8 @@ function App() {
       />
 
       <Notifications notiRef={notiRef}/>
+
+      <SearchPage searchRef={searchRef}/>
     </div>
   );
 }

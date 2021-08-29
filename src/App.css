@@ -44,6 +44,49 @@ body #Navbar p {
   margin: 0;
   color: white;
 }
+body #SearchPage #searchbarContainer {
+  text-align: center;
+  padding: 10px;
+}
+body #SearchPage #searchbarContainer #searchbar {
+  text-align: center;
+}
+body #SearchPage #searchbarContainer p {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}
+body #SearchPage #searchResults .searchResult {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  word-break: break-all;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+body #SearchPage #searchResults .searchResult img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+body #SearchPage #searchResults .searchResult p {
+  margin: 0;
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+body #SearchPage #searchResults .searchResult span {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+}
 body #Notifications h2 {
   font-family: "Quicksand", sans-serif;
   margin: 20px;
@@ -522,6 +565,15 @@ body .hide {
 
   #notiPostContent {
     width: 90% !important;
+  }
+
+  .searchResult {
+    width: 95% !important;
+    flex-direction: column;
+    text-align: center;
+  }
+  .searchResult p {
+    margin: 0 !important;
   }
 }
 

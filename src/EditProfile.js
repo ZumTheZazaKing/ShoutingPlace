@@ -73,7 +73,7 @@ export function EditProfile(props){
                 <br/><br/>
 
                 <InputLabel>Username</InputLabel>
-                <Input fullWidth={true} color="primary" value={props.username} onChange={e => props.setUsername(e.target.value)} required/><br/><br/>
+                <Input inputProps={{maxLength:25}} fullWidth={true} color="primary" value={props.username} onChange={e => props.setUsername(e.target.value)} required/><br/><br/>
                 
                 <InputLabel>Bio</InputLabel>
                 <TextField 
