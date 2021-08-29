@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -16,6 +17,9 @@ body #SignIn {
   margin-top: 50px;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
+}
+body #SignIn h2 {
+  font-family: "Rampart One", cursive;
 }
 body #Navbar {
   display: flex;
@@ -38,7 +42,7 @@ body #Navbar #navButtons .btn {
   cursor: pointer;
 }
 body #Navbar p {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Rampart One", cursive;
   font-weight: 700;
   padding: 5px;
   margin: 0;
