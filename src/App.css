@@ -570,6 +570,13 @@ body .hide {
   #homepage #shouts {
     width: 95% !important;
   }
+  #homepage #header {
+    flex-direction: column;
+    text-align: center;
+  }
+  #homepage #header select {
+    margin-bottom: 20px !important;
+  }
 
   .notification {
     width: 95% !important;
