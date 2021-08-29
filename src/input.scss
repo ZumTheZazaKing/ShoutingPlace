@@ -199,9 +199,20 @@ body{
         }
     }
     #homepage{
-        h2{
-            font-family: $importantFont;
-            margin: 20px;
+        #header{
+            display: flex;
+            align-items: center;
+            h2{
+                font-family: $importantFont;
+                margin: 20px;
+            }
+            select{
+                padding: 5px;
+                font-family: $importantFont;
+                font-weight: 600;
+                border: none;
+                cursor: pointer;
+            }
         }
         #shouts{
             width: 80%;

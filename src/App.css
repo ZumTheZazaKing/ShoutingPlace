@@ -189,9 +189,20 @@ body #Notifications #notificationPost #notiPostContent #notiPostFooter p {
   font-weight: 600;
   font-size: 14px;
 }
-body #homepage h2 {
+body #homepage #header {
+  display: flex;
+  align-items: center;
+}
+body #homepage #header h2 {
   font-family: "Quicksand", sans-serif;
   margin: 20px;
+}
+body #homepage #header select {
+  padding: 5px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
 }
 body #homepage #shouts {
   width: 80%;
