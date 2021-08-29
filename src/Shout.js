@@ -2,13 +2,14 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Tooltip from '@material-ui/core/Tooltip';
 import ChatIcon from '@material-ui/icons/Chat';
+import Collapse from '@material-ui/core/Collapse';
 
 import firebase from './firebase';
 import { auth, firestore } from './Auth';
 import { ShoutAlert } from './ShoutAlert';
 import { Comments } from './Comments';
 
-import { useRef } from 'react'; 
+import { useRef, useState } from 'react'; 
 
 export function Shout(props){
 
@@ -17,6 +18,8 @@ export function Shout(props){
     const commentsReference = firestore.collection("comments");
     const usersRef = firestore.collection("users");
     const notiRef = firestore.collection("notifications");
+
+    const [isChecked, setIsChecked] = useState(false);
 
     const commentsRef = useRef();
     const openComments = () => commentsRef.current.className = "";
@@ -115,7 +118,12 @@ export function Shout(props){
         <br/>
         <div id="shoutBody">
             <p>{body}</p>
-            {bodyImage ? <img src={bodyImage} alt="Post img here"/> : ""}
+            <br/>
+            {bodyImage ? 
+            <Collapse in={isChecked} collapsedSize="100px">
+                <img src={bodyImage} onClick={isChecked ? () => setIsChecked(false) : () => setIsChecked(true)} alt="Post img here"/>
+            </Collapse>
+            : ""}
         </div>
         <div id="shoutFooter">
             <Tooltip title="Likes">
