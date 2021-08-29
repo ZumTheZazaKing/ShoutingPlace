@@ -55,6 +55,11 @@ export function Shout(props){
                         }
                     })
                 })
+                usersRef.doc(uid).get().then(uidDoc => {
+                    usersRef.doc(uid).update({
+                        notiCount:uidDoc.data().notiCount - 1
+                    })
+                })
 
             } else {
                 shoutsRef.doc(id).update({
@@ -76,8 +81,10 @@ export function Shout(props){
                         notiMessage:"liked your shout",
                         notiTimestamp:shoutTimestamp
                     })
-                    usersRef.doc(uid).update({
-                        notiCount:doc.data().notiCount + 1
+                    usersRef.doc(uid).get().then(uidDoc => {
+                        usersRef.doc(uid).update({
+                            notiCount:uidDoc.data().notiCount + 1
+                        })
                     })
                 })
             }

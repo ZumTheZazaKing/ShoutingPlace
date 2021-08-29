@@ -61,8 +61,10 @@ export function Comments(props){
                 notiMessage:"commented on your shout",
                 notiTimestamp:commentTimestamp
             })
-            usersRef.doc(props.uid).update({
-                notiCount:doc.data().notiCount + 1
+            usersRef.doc(props.uid).get().then(uidDoc => {
+                usersRef.doc(props.uid).update({
+                    notiCount:uidDoc.data().notiCount + 1
+                })
             })
         })
 
