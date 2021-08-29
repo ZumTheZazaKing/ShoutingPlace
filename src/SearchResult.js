@@ -1,4 +1,4 @@
-import { firestore } from './Auth';
+import { firestore, auth } from './Auth';
 
 export function SearchResult(props){
 
@@ -7,6 +7,8 @@ export function SearchResult(props){
     const usersRef = firestore.collection("users");
 
     function viewProfile(){
+        if(auth.currentUser.uid === id)return;
+
         props.openViewProfile();
         usersRef.doc(id).get().then(doc => {
             props.setViews(doc.data())
