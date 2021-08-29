@@ -68,6 +68,7 @@ body #SearchPage #searchResults .searchResult {
   word-break: break-all;
   flex-wrap: wrap;
   border-radius: 10px;
+  cursor: pointer;
 }
 body #SearchPage #searchResults .searchResult img {
   border-radius: 50%;

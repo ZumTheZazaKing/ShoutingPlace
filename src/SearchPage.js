@@ -18,13 +18,19 @@ export function SearchPage(props){
 
     let [results] = useCollectionData(usersRef, {idField:'id'});
 
+    function openViewProfile(){
+        props.openViewProfile();
+        props.closeProfile();
+        props.closeSearch();
+    }
+
     return (<div id="SearchPage" className="hide" ref={props.searchRef}>
        <div id="searchbarContainer">
             <Input color="primary" id="searchbar" value={searchQuery} onChange={e => handleChange(e)} fullWidth placeholder="Enter Name"/>
             <p>Names are case-sensitive. Results will appear once a <b>definite</b> match is found</p>
        </div>
        <div id="searchResults">
-            {results && results.map(result => <SearchResult key={result.id} resultData={result}/>)}
+            {results && results.map(result => <SearchResult openViewProfile={openViewProfile} setViewUid={props.setViewUid} setViews={props.setViewVariables} key={result.id} resultData={result}/>)}
        </div>
     </div>)
 }

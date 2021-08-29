@@ -107,7 +107,13 @@ function App() {
 
       <Notifications notiRef={notiRef}/>
 
-      <SearchPage searchRef={searchRef}/>
+      <SearchPage searchRef={searchRef}
+      openViewProfile={openViewProfile} 
+      closeProfile={closeProfile}
+      closeSearch={closeSearch}
+      setViewVariables={setViewVariables}
+      setViewUid={setViewUid}
+      />
     </div>
   );
 }
