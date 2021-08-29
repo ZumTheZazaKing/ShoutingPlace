@@ -27,7 +27,7 @@ export function SearchPage(props){
     return (<div id="SearchPage" className="hide" ref={props.searchRef}>
        <div id="searchbarContainer">
             <Input color="primary" id="searchbar" value={searchQuery} onChange={e => handleChange(e)} fullWidth placeholder="Enter Name"/>
-            <p>Names are case-sensitive. Results will appear once a <b>definite</b> match is found</p>
+            <p>Names are <b>case and space sensitive</b>. Results will appear once a <b>definite</b> match is found</p>
        </div>
        <div id="searchResults">
             {results && results.map(result => <SearchResult openViewProfile={openViewProfile} setViewUid={props.setViewUid} setViews={props.setViewVariables} key={result.id} resultData={result}/>)}
