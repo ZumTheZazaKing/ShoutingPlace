@@ -45,7 +45,7 @@ export function EditProfile(props){
         props.closeEditProfile();
 
         docRef.update({
-            username:props.username,
+            username:props.username.trim(),
             bio:props.bio || "The user is lazy and didn't set a bio...",
             website:props.website,
             email:props.email
