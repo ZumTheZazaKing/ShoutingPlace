@@ -59,9 +59,11 @@ export function Shout(props){
                     })
                 })
                 usersRef.doc(uid).get().then(uidDoc => {
-                    usersRef.doc(uid).update({
-                        notiCount:uidDoc.data().notiCount - 1
-                    })
+                    if(uidDoc.data().notiCount > 0){
+                        usersRef.doc(uid).update({
+                            notiCount:uidDoc.data().notiCount - 1
+                        })
+                    }
                 })
 
             } else {
