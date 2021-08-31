@@ -69,7 +69,7 @@ export function EditProfile(props){
        <div id="editForm">
             <div id="fillIn">
                 <InputLabel>Profile Picture</InputLabel><br/>
-                <input type="file" accept=".png,.jpeg,.jpg" onChange={(e)=>{setImage(e.target.files[0])}}/>
+                <input type="file" accept=".png,.jpeg,.jpg,.gif" onChange={(e)=>{setImage(e.target.files[0])}}/>
                 <br/><br/>
 
                 <InputLabel>Username</InputLabel>
