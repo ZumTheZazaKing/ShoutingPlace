@@ -37,6 +37,13 @@ export function Shout(props){
                 }
             })
         })
+        notiRef.get().then(docs => {
+            docs.forEach(doc => {
+                if(doc.data().notiPost === id){
+                    doc.ref.delete();
+                }
+            })
+        })
     }
 
 
