@@ -28,3 +28,9 @@ I made this project so I could submit it to a competition called PRIN2021 and al
 ## Any future plans?
 
 Well, I'm thinking of adding private messaging since someone I know suggested it to me. Seems like a great idea!!
+
+---
+<p align="center"> © 2021 ZumTheZazaKing, all rights reserved. Made with ❤️ &nbsp; for a better web. </p>
+<p align="center">
+https://zumthezazaking.netlify.app
+</p>
